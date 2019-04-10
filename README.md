@@ -1,3 +1,3 @@
-## JS Features
+## JS Book
 
-JS feature is practice, implementation and understanding of various features
+JS book is practice, implementation and understanding of various features
