@@ -85,9 +85,9 @@ var chrisGreet = christophe.greet; // greet will lost it's binding i.e christoph
 
   /*
    * creating "self" variable to hold the reference of the current "this"
-   * no explicit binding require using bind/apply/call function
+   * no explicit binding require using bind function
    * It is able to access greet function because the nested function can access the
-   * variable of the parent function i.e lexicalClouser
+   * variable of the parent function i.e lexicalClosure
    */
   var self = this;
   setTimeout(function() {
