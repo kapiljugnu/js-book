@@ -1,24 +1,88 @@
 /*
-* 
-* Object is fundamental datatype in javascript.
-* It is the only complex datatype.
-* Rest datatype are primitive (number, boolean, string, symbol, null, undefined).
-* Object are mutable (can be changed).
-* Object is unordered list of primitive datatype,
-* that is stored as a series of name-value pair.
-* Everything in js is object.
-*
-*/
+ *
+ * Object is fundamental datatype in javascript.
+ * It is the only complex datatype.
+ * Rest datatype are primitive (number, boolean, string, symbol, null, undefined).
+ * Object are mutable (can be changed).
+ * Object is unordered list of primitive datatype,
+ * that is stored as a series of name-value pair.
+ * Everything in js is object.
+ *
+ */
 
+/*
+ * Object Literal
+ * Object literal is used when
+ */
+const John = {
+  name: "John",
+  print: function(str) {
+    console.log(str, " - ", this);
+  }
+};
+John.print("John"); // => John  -  { name: 'John', print: [Function: print] }
 
-// object literal
+/*
+ * Object Constructor
+ */
 
-// Object constructor
+const Jane = new Object();
+Jane.name = "Jane";
+Jane.print = function print(str) {
+  console.log(str, " - ", this);
+};
+Jane.print("Jane"); // => Jane  -  { name: 'Jane', print: [Function: print] }
 
-// object.create()
+/*
+ * es6 classes
+ */
 
-// es6 classes
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+  print(str) {
+    console.log(str, " - ", this);
+  }
+}
 
-// constructor function pattern
+const Tasha = new Person("Tasha");
+Tasha.print("Tasha"); // => Tasha  -  Person { name: 'Tasha' }
 
-// prototype pattern
+/*
+ * constructor function pattern
+ */
+
+function Animal(name) {
+  this.name = name;
+  this.print = function print(str) {
+    console.log(str, " - ", this);
+  };
+}
+
+const dog = new Animal("Fluffy");
+dog.print("Dog"); // => Dog  -  Animal { name: 'Fluffy', print: [Function: print] }
+
+/*
+ * prototype pattern
+ */
+
+function Movie(name) {
+  this.name = name;
+}
+
+Movie.prototype.print = function print(str) {
+  console.log(str, " - ", this);
+};
+
+const matrix = new Movie('Matrix');
+matrix.print('Matrix'); // => Matrix  -  Movie { name: 'Matrix' }
+
+/*
+ * object.create()
+ */
+
+const JaneDoe = Object.create(Jane); // using Jane as a prototype of JaneDoe
+JaneDoe.lastname = "Doe";
+// print function is inhertited from Jane
+JaneDoe.print("JaneDoe"); // => JaneDoe  -  { lastname: 'Doe' }
