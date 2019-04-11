@@ -10,15 +10,17 @@
  *
  */
 
+function print(str) {
+  console.log(str, " - ", this);
+}
+
 /*
  * Object Literal
  * Object literal is used when
  */
 const John = {
   name: "John",
-  print: function(str) {
-    console.log(str, " - ", this);
-  }
+  print
 };
 John.print("John"); // => John  -  { name: 'John', print: [Function: print] }
 
@@ -28,9 +30,7 @@ John.print("John"); // => John  -  { name: 'John', print: [Function: print] }
 
 const Jane = new Object();
 Jane.name = "Jane";
-Jane.print = function print(str) {
-  console.log(str, " - ", this);
-};
+Jane.print = print;
 Jane.print("Jane"); // => Jane  -  { name: 'Jane', print: [Function: print] }
 
 /*
@@ -55,9 +55,7 @@ Tasha.print("Tasha"); // => Tasha  -  Person { name: 'Tasha' }
 
 function Animal(name) {
   this.name = name;
-  this.print = function print(str) {
-    console.log(str, " - ", this);
-  };
+  this.print = print;
 }
 
 const dog = new Animal("Fluffy");
@@ -71,9 +69,7 @@ function Movie(name) {
   this.name = name;
 }
 
-Movie.prototype.print = function print(str) {
-  console.log(str, " - ", this);
-};
+Movie.prototype.print = print;
 
 const matrix = new Movie('Matrix');
 matrix.print('Matrix'); // => Matrix  -  Movie { name: 'Matrix' }
