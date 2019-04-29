@@ -36,14 +36,17 @@ function usingReverseArray(arr, degree) {
       end--;
     }
   }
+  // reverse till the degree
   reverse(0, degree - 1);
+  // reverse after the degree
   reverse(degree, arr.length - 1);
+  // reverse the complete array
   reverse(0, arr.length - 1);
   return arr;
 }
 
 const list = [1, 2, 3, 4, 5, 6, 7],
   degree = 2;
-console.log(`usingTemp=>`, usingTemp([...list], degree));
-console.log(`shiftingOneByOne=>`,shiftingOneByOne([...list], degree));
-console.log(`usingReverseArray=>`,usingReverseArray([...list], degree));
+console.log(`usingTemp=> `, usingTemp([...list], degree));
+console.log(`shiftingOneByOne=> `,shiftingOneByOne([...list], degree));
+console.log(`usingReverseArray=> `,usingReverseArray([...list], degree));
